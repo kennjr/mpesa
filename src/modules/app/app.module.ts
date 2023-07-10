@@ -7,10 +7,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LandingModule } from '../landing/landing.module';
+import { NotFoundComponent } from './presentation/not-found/not-found.component';
+import { LandingRoutingModule } from '../landing/landing-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,

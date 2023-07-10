@@ -16,6 +16,6 @@ import { LandingRoutingModule } from './landing-routing.module';
     ReactiveFormsModule,
     HttpClientModule,
     LandingRoutingModule
-  ]
+  ],
 })
 export class LandingModule { }
