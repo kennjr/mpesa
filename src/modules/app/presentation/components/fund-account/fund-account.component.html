@@ -1,0 +1,69 @@
+<div x-data="{ isOpen: true }" class="relative flex justify-center">
+    <!--
+      Background backdrop, show/hide based on slide-over state.
+  
+      Entering: "ease-in-out duration-500"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in-out duration-500"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div x-show="isOpen"
+        x-transition:enter="transition duration-300 ease-out"
+        x-transition:enter-start="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
+        x-transition:enter-end="translate-y-0 opacity-100 sm:scale-100"
+        x-transition:leave="transition duration-150 ease-in"
+        x-transition:leave-start="translate-y-0 opacity-100 sm:scale-100"
+        x-transition:leave-end="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
+        class="fixed inset-0 z-10 overflow-y-auto" 
+        aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+        <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    
+            <div class="relative inline-block p-4 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl sm:max-w-sm rounded-xl dark:bg-gray-800 sm:my-8 sm:w-full sm:p-6">
+                <div class="flex items-center justify-center mx-auto bg-gray-100 dark:bg-gray-600 rounded-lg">
+                    <svg class="rounded-lg h-60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <g opacity="0.4"> 
+                                <path d="M9.5 13.7502C9.5 14.7202 10.25 15.5002 11.17 15.5002H13.05C13.85 15.5002 14.5 14.8202 14.5 13.9702C14.5 13.0602 14.1 12.7302 13.51 12.5202L10.5 11.4702C9.91 11.2602 9.51001 10.9402 9.51001 10.0202C9.51001 9.18023 10.16 8.49023 10.96 8.49023H12.84C13.76 8.49023 14.51 9.27023 14.51 10.2402" stroke="#c8abff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                <path d="M12 7.5V16.5" stroke="#c8abff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            </g> 
+                            <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2" stroke="#c8abff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            <path d="M17 3V7H21" stroke="#c8abff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            <path d="M22 2L17 7" stroke="#c8abff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="mt-5 text-center">
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white" id="modal-title">Fund Account</h3>
+
+                    <p class="mt-2 text-gray-500 dark:text-gray-400">Fund your account for you to be able to send money</p>
+                </div>
+
+                <div class="relative rounded-md shadow-sm flex items-center justify-between w-full mt-5 gap-x-2">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                      <span class="text-gray-500 sm:text-sm">$</span>
+                    </div>
+                    <input type="text" name="price" id="price" class="block w-full rounded-md py-1.5 pl-7 pr-20ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 flex-1 h-10 px-4 text-sm text-gray-700 bg-white border border-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700" placeholder="0.00">
+                </div>
+
+                <div class="mt-4 sm:flex sm:items-center sm:justify-between sm:mt-6 sm:-mx-2">
+                    <button (click)="onCancelClicked ()" class="px-4 sm:mx-2 w-full py-2.5 text-sm font-medium dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+                        Cancel
+                    </button>
+
+                    <button class="px-4 sm:mx-2 w-full py-2.5 mt-3 sm:mt-0 text-sm font-medium tracking-wide text-gray-900 capitalize transition-colors duration-300 transform bg-primary rounded-md">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

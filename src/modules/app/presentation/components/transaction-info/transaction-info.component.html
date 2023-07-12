@@ -1,0 +1,133 @@
+<div class="relative z-10" role="dialog" aria-modal="true">
+    <!--
+      Background backdrop, show/hide based on slide-over state.
+  
+      Entering: "ease-in-out duration-500"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in-out duration-500"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  
+    <div class="fixed inset-0 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+          <!--
+            Slide-over panel, show/hide based on slide-over state.
+  
+            Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+              From: "translate-x-full"
+              To: "translate-x-0"
+            Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+              From: "translate-x-0"
+              To: "translate-x-full"
+          -->
+          <div class="pointer-events-auto relative w-96">
+            <!--
+              Close button, show/hide based on slide-over state.
+  
+              Entering: "ease-in-out duration-500"
+                From: "opacity-0"
+                To: "opacity-100"
+              Leaving: "ease-in-out duration-500"
+                From: "opacity-100"
+                To: "opacity-0"
+            -->
+            <div class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4">
+              <button (click)="closeDialog()" type="button" class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                <span class="sr-only">Close panel</span>
+                <!-- close icon -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+  
+            <!-- Slide-over panel, show/hide based on slide-over state. -->
+            <div class="h-full overflow-y-auto bg-white dark:bg-gray-800 p-8">
+              <div class="space-y-6 pb-16">
+                <div>
+                    <div class="aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg items-center justify-center text-primary bg-gray-100 dark:bg-gray-600">
+                        <img class="w-5 h-5" src="./../../../../../assets/res/svg/money.svg">
+                    </div>
+                    <div class="mt-4 flex items-start justify-between">
+                        <div>
+                            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-50"><span class="sr-only">Details for </span>Q37TN0IDB0</h2>
+                            <p [ngClass]="{'text-green-400 dark:text-green-600': result, 'text-red-600 dark:text-red-600' : !result }" class="text-sm font-medium text-gray-500"><span *ngIf="result">Success</span><span *ngIf="!result">Failed</span></p>
+                        </div>
+                        <button type="button" class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-gray-800 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-500">
+                            <!-- Share icon -->
+                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier"> 
+                                    <path d="M9 11.5C9 12.8807 7.88071 14 6.5 14C5.11929 14 4 12.8807 4 11.5C4 10.1193 5.11929 9 6.5 9C7.88071 9 9 10.1193 9 11.5Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                                    <path opacity="0.5" d="M14.3206 16.8017L9 13.29" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"></path> 
+                                    <path opacity="0.5" d="M14.4207 6.83984L9.1001 10.3515" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"></path> 
+                                    <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                                    <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                                </g>
+                            </svg>
+                            <span class="sr-only">Share</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                  <h3 class="font-medium text-gray-900 dark:text-gray-50">From</h3>
+                  <dl class="mt-2 divide-y divide-gray-200 dark:divide-gray-500 border-t border-b border-gray-200 dark:border-gray-500">
+                    <div class="flex justify-between py-3 text-sm font-medium">
+                      <dt class="text-gray-500 dark:text-gray-400">Name</dt>
+                      <dd class="text-gray-900 dark:text-gray-50">Martina Castro</dd>
+                    </div>
+                    <div class="flex justify-between py-3 text-sm font-medium">
+                      <dt class="text-gray-500 dark:text-gray-400">Email</dt>
+                      <dd class="text-gray-900 dark:text-gray-50">martinacastro@unitpay.live</dd>
+                    </div>
+                    <div class="flex justify-between py-3 text-sm font-medium">
+                      <dt class="text-gray-500 dark:text-gray-400">Phone</dt>
+                      <dd class="text-gray-900 dark:text-gray-50">+254 786 256 630</dd>
+                    </div>
+                  </dl>
+                </div>
+                
+                <div>
+                  <h3 class="font-medium text-gray-900 dark:text-gray-50">Transaction</h3>
+                  <dl class="mt-2 divide-y divide-gray-200 dark:divide-gray-500 border-t border-b border-gray-200 dark:border-gray-500">
+                    <div class="flex justify-between py-3 text-sm font-medium">
+                      <dt class="text-gray-500 dark:text-gray-400">Amount</dt>
+                      <dd class="text-gray-900 dark:text-gray-50">$349</dd>
+                    </div>
+                    <div class="flex justify-between py-3 text-sm font-medium">
+                      <dt class="text-gray-500 dark:text-gray-400">Cost</dt>
+                      <dd class="text-gray-900 dark:text-gray-50">$2.40</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div>
+                  <h3 class="font-medium text-gray-900 dark:text-gray-50">Time</h3>
+                  <dl class="mt-0 flex items-center justify-between text-sm border-b border-gray-200 dark:border-gray-500 font-medium">
+                    <dt class="text-gray-500 dark:text-gray-400 py-3">16:37 Fri 10, Nov 2021</dt>
+                  </dl>
+                </div>
+                <div>
+                    <dl class="mt-2 divide-y divide-gray-200 border-b border-gray-200 dark:border-gray-500">
+                      <div class="flex justify-between py-3 text-sm font-medium">
+                        <dt class="text-gray-500 dark:text-gray-400">Balance</dt>
+                        <dd class="text-gray-900 dark:text-gray-50">$8349</dd>
+                      </div>
+                    </dl>
+                  </div>
+                <div class="flex">
+                  <button (click)="onDownloadTransactionClicked()" type="button" class="flex-1 rounded-lg border border-transparent bg-primary py-2 px-4 text-sm font-medium text-gray-800 shadow-sm">Download</button>
+                  <button (click)="onReverseTransactionClicked()" type="button" class="ml-3 flex-1 rounded-md border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-800 py-2 px-4 text-sm font-medium text-gray-700 dark:text-gray-50 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600">Reverse</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

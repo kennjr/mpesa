@@ -1,1 +1,293 @@
-<p>landing works!</p>
+<app-header></app-header>
+<!-- Hero section -->
+<div class="relative bg-gray-50 dark:bg-gray-900">
+    <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+        <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+    </div>
+
+    <!-- Hero -->
+    <div class="max-w-auto mx-auto px-6 md:px-12 xl:px-6">
+        <div class="relative pt-36 ml-auto pb-16 lg:pb-20">
+            <div class="lg:w-2/3 text-center mx-auto items-center">
+                <h1 class="text-gray-900 dark:text-gray-50 font-bold text-5xl md:text-6xl xl:text-7xl max-w-7xl">Fast. Secure. Easy.<br><span class="text-primary dark:text-white">Transact Anywhere.</span></h1>
+                <p class="mt-8 text-gray-700 dark:text-gray-300 lg:px-40">Transform the way you handle transactions. Our feature-rich web application empowers you to save time and eliminate complexity. Effortlessly manage transactions, monitor spending patterns, and gain valuable insights into your financial health. Streamline your transactions and optimize your financial journey like never before.</p>
+                <div class="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6 max-w-7xl">
+                    <a routerLink="/auth" class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max cursor-pointer">
+                      <span class="relative text-base font-semibold text-gray-800">Get started</span>
+                    </a>
+                    <a href="#" class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max cursor-pointer">
+                      <span class="relative text-base font-semibold text-primary dark:text-white">Learn more</span>
+                    </a>
+                </div>
+                <div class="py-8 mt-16 border-y border-gray-100 dark:border-gray-800 justify-between space-x-0 lg:space-x-4 grid lg:grid-cols-3">
+                    <div class="text-left">
+                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white">Low transaction fees</h6>
+                        <p class="mt-2 text-sm text-gray-500 me-0 lg:me-4">Send money with the lowest transaction rates in the country, we don't charge you an arm and a leg.</p>
+                    </div>
+                    <div class="text-left mt-4 lg:mt-0">
+                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white">No delays</h6>
+                        <p class="mt-2 text-sm text-gray-500">Receive money instantly, we pride ourselves in being the fastest in the industry</p>
+                    </div>
+                    <div class="text-left mt-4 lg:mt-0">
+                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white">Air tight</h6>
+                        <p class="mt-2 text-sm text-gray-500">Your transactions are secure, we invest heavily into our systems' security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section>
+        <div class="px-4 sm:px-6 lg:px-6 py-6 lg:py-10 mx-auto max-w-7xl">
+          <div class="md:w-2/3 lg:w-1/2">
+            <h2 class="my-8 text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">A technology-first approach to payments and finance</h2>
+            <p class="text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad ipsum pariatur autem, fugit laborum in atque amet obcaecati? Nisi minima aspernatur, quidem nulla cupiditate nam consequatur eligendi magni adipisci.</p>
+          </div>
+          <div class="mt-16 grid divide-x divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
+            <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+              <div class="relative space-y-8 py-12 p-8">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png" class="w-12" width="512" height="512" alt="burger illustration"/>
+      
+                <div class="space-y-2">
+                  <h5 class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">First feature</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.</p>
+                </div>
+                <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+                  <span class="text-sm">Read more</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                  </svg>                
+                </a>
+              </div>
+            </div>
+            <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+              <div class="relative space-y-8 py-12 p-8">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341134.png" class="w-12" width="512" height="512" alt="burger illustration"/>
+      
+                <div class="space-y-2">
+                  <h5 class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">Second feature</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.</p>
+                </div>
+                <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+                  <span class="text-sm">Read more</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                  </svg>                
+                </a>
+              </div>
+            </div>
+            <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+              <div class="relative space-y-8 py-12 p-8">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341160.png" class="w-12" width="512" height="512" alt="burger illustration"/>
+      
+                <div class="space-y-2">
+                  <h5 class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">Third feature</h5>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+                  </p>
+                </div>
+                <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+                  <span class="text-sm">Read more</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                  </svg>                
+                </a>
+              </div>
+            </div>
+            <div class="group relative bg-gray-50 dark:bg-gray-900 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+              <div class="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white dark:group-hover:bg-gray-800">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341025.png" class="w-12" width="512" height="512" alt="burger illustration"/>
+      
+                <div class="space-y-2">
+                  <h5 class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">More features</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.</p>
+                </div>
+                <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+                  <span class="text-sm">Read more</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                  </svg>                
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="pb-14 lg:pb-16 pt-14 lg:pt-16">
+        <div class="px-4 sm:px-6 lg:px-6 py-10 mx-auto max-w-7xl">
+            <div class="xl:flex xl:items-center xl:-mx-4">
+                <div class="xl:w-1/2 xl:mx-2">
+                    <h2 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Our Team</h2>
+                    <p class="max-w-2xl mt-4 lg:mt-8 text-gray-500 dark:text-gray-300">We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our users.</p>
+                </div>
+    
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-2">
+                    <div>
+                        <img class="object-cover rounded-xl aspect-square" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
+                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Juan Palacios</h1>
+                        <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Founder, CEO</p>
+                    </div>
+    
+                    <div>
+                        <img class="object-cover rounded-xl aspect-square" src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Esmeralda Gonzalez</h1>
+                        <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Software developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <div class="px-4 sm:px-6 lg:px-6 py-10 mx-auto max-w-7xl">
+            <div class="mb-12 lg:mb-20 space-y-4 px-6 md:px-0">
+              <h2 class="text-center text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">What some of our users are saying</h2>
+            </div>
+            <div class="md:columns-2 lg:columns-3 gap-8 space-y-8">
+                <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                    <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar.webp" alt="user avatar" width="400" height="400" loading="lazy">
+                    <div>
+                        <h6 class="text-lg font-medium text-gray-700 dark:text-white">Daniella Doe</h6>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
+                    </div>
+                    </div>
+                    <p class="mt-8 text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aliquid quo eum quae quos illo earum ipsa doloribus nostrum minus libero aspernatur laborum cum, a suscipit, ratione ea totam ullam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
+                </div>
+                
+                <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                    <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-1.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <div>
+                        <h6 class="text-lg font-medium text-gray-700 dark:text-white">Jane doe</h6>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">Marketing</p>
+                    </div>
+                    </div>
+                    <p class="mt-8 text-gray-400"> Lorem ipsum dolor laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
+                </div>
+
+                <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                    <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-2.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <div>
+                        <h6 class="text-lg font-medium text-gray-700 dark:text-white">Yanick Doe</h6>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">Developer</p>
+                    </div>
+                    </div>
+                    <p class="mt-8 text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
+                </div>
+
+                <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                    <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-3.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <div>
+                        <h6 class="text-lg font-medium text-gray-700 dark:text-white">Jane Doe</h6>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
+                    </div>
+                    </div>
+                    <p class="mt-8 text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
+                </div>
+
+                <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                    <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-4.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <div>
+                        <h6 class="text-lg font-medium text-gray-700 dark:text-white">Andy Doe</h6>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">Manager</p>
+                    </div>
+                    </div>
+                    <p class="mt-8 text-gray-400"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
+                </div>
+
+                <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                    <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-2.webp" alt="user avatar" width="400" height="400" loading="lazy">
+                    <div>
+                        <h6 class="text-lg font-medium text-gray-700 dark:text-white">Yanndy Doe</h6>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
+                    </div>
+                    </div>
+                    <p class="mt-8 text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
+                </div>
+            </div>
+          </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="lg:py-12">
+        <div class="mx-auto max-w-7xl bg-gray-50 dark:bg-gray-900 py-24 lg:py-16 px-4 sm:px-6 lg:px-6">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl sm:leading-none lg:text-4xl">Pricing plans for transactions of all sizes</h2>
+            <p class="mt-4 lg:mt-8 max-w-2xl text-base text-gray-500 dark:text-gray-300">One of the charges below will apply to your transaction based on the amount.</p>
+            
+            <!-- Tiers -->
+            <div class="mt-16 lg:mt-20 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+                <div class="relative flex flex-col rounded-2xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 p-8 shadow-sm">
+                    <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-gray-200">Small</h3>
+                    <p class="mt-4 flex items-baseline text-gray-900">
+                        <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">$1.30</span>
+                        <span class="ml-1 text-xl font-semibold text-gray-900 dark:text-gray-50">/transaction</span>
+                    </p>
+                    <p class="mt-6 text-gray-500">The essentials to provide your best work for clients.</p>
+                    </div>
+            
+                    <a routerLink="/auth" class="bg-gray-700 text-primary scale-90 hover:scale-95 border-gray-500 mt-8 block w-full py-3 px-6 rounded-xl text-center font-medium">Get started</a>
+                </div>
+            
+                <div class="relative flex flex-col rounded-2xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 p-8 shadow-sm">
+                    <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-gray-200">Medium</h3>
+            
+                    <p class="absolute top-0 -translate-y-1/2 transform rounded-full bg-primary py-1.5 px-4 text-sm font-semibold text-gray-800">Most popular</p>
+                    <p class="mt-4 flex items-baseline text-gray-900">
+                        <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">$2.00</span>
+                        <span class="ml-1 text-xl font-semibold text-gray-900 dark:text-gray-50">/transaction</span>
+                    </p>
+                    <p class="mt-6 text-gray-500">A plan that scales with your rapidly growing business.</p>
+                    </div>
+            
+                    <a routerLink="/auth" class="bg-primary text-gray-900 scale-90 hover:scale-95 mt-8 block w-full py-3 px-6 border border-transparent rounded-xl text-center font-medium cursor-pointer">Get started</a>
+                </div>
+            
+                <div class="relative flex flex-col rounded-2xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 p-8 shadow-sm">
+                    <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-gray-200">Large</h3>
+                    <p class="mt-4 flex items-baseline text-gray-900">
+                        <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">$3.50</span>
+                        <span class="ml-1 text-xl font-semibold text-gray-900 dark:text-gray-50">/transaction</span>
+                    </p>
+                    <p class="mt-6 text-gray-500">Dedicated support and infrastructure for your company.</p>
+                    </div>
+            
+                    <a routerLink="/auth" class="bg-gray-700 text-primary scale-90 hover:scale-95 mt-8 block w-full py-3 px-6 rounded-xl text-center font-medium cursor-pointer">Get started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="-mt-6 lg:-mt-0">
+        <div class="px-4 sm:px-6 lg:px-4 py-10">
+            <div class="mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                  <span class="block text-gray-900 dark:text-gray-50">Experience Secure and Convenient Transactions</span>
+                  <span class="block text-primary">Join now!</span>
+                </h2>
+                <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                  <div class="inline-flex rounded-xl shadow">
+                    <a href="#" class="inline-flex items-center justify-center rounded-xl border border-transparent bg-primary px-5 py-3 text-base font-medium text-gray-800 scale-90 hover:scale-95">Get started</a>
+                  </div>
+                  <div class="ml-3 inline-flex rounded-xl shadow">
+                    <a href="#" class="inline-flex items-center justify-center rounded-xl border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-primary scale-90 hover:scale-95">Learn more</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+    </section>
+</div>
+<app-footer></app-footer>

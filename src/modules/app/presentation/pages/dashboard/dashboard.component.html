@@ -1,0 +1,238 @@
+<div class="bg-gray-50 dark:bg-gray-900">
+    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+    <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
+      <!--
+        Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+  
+        Entering: "transition-opacity ease-linear duration-300"
+          From: "opacity-0"
+          To: "opacity-100"
+        Leaving: "transition-opacity ease-linear duration-300"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+      <div *ngIf="showSidebar" class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
+  
+      <div *ngIf="showSidebar" class="fixed inset-0 z-40 flex">
+        <!--
+          Off-canvas menu, show/hide based on off-canvas menu state.
+  
+          Entering: "transition ease-in-out duration-300 transform"
+            From: "-translate-x-full"
+            To: "translate-x-0"
+          Leaving: "transition ease-in-out duration-300 transform"
+            From: "translate-x-0"
+            To: "-translate-x-full"
+        -->
+        <div class="relative flex w-full max-w-xs flex-1 flex-col bg-white dark:bg-gray-800">
+          <!--
+            Close button, show/hide based on off-canvas menu state.
+  
+            Entering: "ease-in-out duration-300"
+              From: "opacity-0"
+              To: "opacity-100"
+            Leaving: "ease-in-out duration-300"
+              From: "opacity-100"
+              To: "opacity-0"
+          -->
+          <div class="absolute top-0 right-0 -mr-12 pt-2">
+            <button (click)="closeSidebar ()" type="button" class="ml-1 flex h-10 w-10 items-center justify-center rounded-full">
+              <span class="sr-only">Close sidebar</span>
+              <svg class="h-6 w-6 text-gray-400 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+  
+          <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
+            <div class="flex flex-shrink-0 items-center px-4">
+              <app-logo-header class="ms-1"></app-logo-header>
+            </div>
+            <nav class="mt-5 space-y-1 px-2">
+              <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+              <a (click)="closeSidebar ()" routerLink="/app/transact" class="dark:text-gray-100 text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-primary group flex items-center px-2 py-2 text-sm font-medium rounded-md cursor-pointer">
+                <svg class="mr-3 flex-shrink-0 h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="#C8ABFF" stroke-width="1.5"></path> 
+                        <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#C8ABFF" stroke-width="1.5" stroke-linecap="round"></path> 
+                    </g>
+                </svg>
+                New transaction
+              </a>
+              <hr class="border-b border-gray-300 dark:border-gray-600 my-4"/>
+  
+              <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+            <a (click)="closeSidebar ()" routerLink="/app" class="dark:text-gray-200 text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 flex items-center px-2 py-4 text-sm font-medium rounded-md my-4 cursor-pointer">
+              <!--Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"-->
+              <svg class="text-gray-400 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
+              Dashboard
+            </a>
+  
+            <a (click)="closeSidebar ()" routerLink="/app/history" class="dark:text-gray-200 text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 group flex items-center px-2 py-4 text-sm font-medium rounded-md my-3 cursor-pointer">
+                <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path d="M3 5.67541V3C3 2.44772 2.55228 2 2 2C1.44772 2 1 2.44772 1 3V7C1 8.10457 1.89543 9 3 9H7C7.55229 9 8 8.55229 8 8C8 7.44772 7.55229 7 7 7H4.52186C4.54218 6.97505 4.56157 6.94914 4.57995 6.92229C5.621 5.40094 7.11009 4.22911 8.85191 3.57803C10.9074 2.80968 13.173 2.8196 15.2217 3.6059C17.2704 4.3922 18.9608 5.90061 19.9745 7.8469C20.9881 9.79319 21.2549 12.043 20.7247 14.1724C20.1945 16.3018 18.9039 18.1638 17.0959 19.4075C15.288 20.6513 13.0876 21.1909 10.9094 20.9247C8.73119 20.6586 6.72551 19.605 5.27028 17.9625C4.03713 16.5706 3.27139 14.8374 3.06527 13.0055C3.00352 12.4566 2.55674 12.0079 2.00446 12.0084C1.45217 12.0088 0.995668 12.4579 1.04626 13.0078C1.25994 15.3309 2.2082 17.5356 3.76666 19.2946C5.54703 21.3041 8.00084 22.5931 10.6657 22.9188C13.3306 23.2444 16.0226 22.5842 18.2345 21.0626C20.4464 19.541 22.0254 17.263 22.6741 14.6578C23.3228 12.0526 22.9963 9.30013 21.7562 6.91897C20.5161 4.53782 18.448 2.69239 15.9415 1.73041C13.4351 0.768419 10.6633 0.756291 8.14853 1.69631C6.06062 2.47676 4.26953 3.86881 3 5.67541Z" fill="#a3a3a3"></path> 
+                        <path d="M12 5C11.4477 5 11 5.44771 11 6V12.4667C11 12.4667 11 12.7274 11.1267 12.9235C11.2115 13.0898 11.3437 13.2344 11.5174 13.3346L16.1372 16.0019C16.6155 16.278 17.2271 16.1141 17.5032 15.6358C17.7793 15.1575 17.6155 14.546 17.1372 14.2698L13 11.8812V6C13 5.44772 12.5523 5 12 5Z" fill="#a3a3a3"></path>
+                    </g>
+                </svg>
+                History
+            </a>
+            </nav>
+          </div>
+          <div class="flex flex-shrink-0 border-t border-gray-200 dark:border-gray-600 p-4 mx-2">
+            <a (click)="closeSidebar ()" routerLink="/app/profile" class="group block w-full flex-shrink-0">
+                <div class="flex items-center">
+                    <div>        
+                      <svg class="inline-block h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                          <circle cx="12" cy="6" r="4" stroke="#a3a3a3" stroke-width="1.5"></circle> 
+                          <path opacity="0.5" d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-base font-medium dark:text-gray-300 text-gray-700 group-hover:text-gray-900 dark:group-hover:text-gray-100">Paloma Sanchez</p>
+                        <p class="text-xs font-medium dark:text-gray-400 text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">View account</p>
+                    </div>
+                </div>
+            </a>
+          </div>
+  
+        <div class="w-14 flex-shrink-0">
+          <!-- Force sidebar to shrink to fit close icon -->
+        </div>
+      </div>
+      </div>
+    </div>
+  
+    <!-- Static sidebar for desktop -->
+    <div class="hidden md:fixed md:inset-y-0 md:flex md:w-72 md:flex-col">
+      <div class="flex min-h-0 flex-1 flex-col border-r border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800">
+        <div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
+          <div class="flex flex-shrink-0 items-center p-4">
+            <app-logo-header class="ms-1"></app-logo-header>
+          </div>
+          <nav class="mt-5 flex-1 bg-white dark:bg-gray-800 px-2 mx-2">
+            <a routerLink="/app/transact" class="dark:text-gray-100 text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-primary group flex items-center px-2 py-2 text-sm font-medium rounded-md cursor-pointer">
+                <svg class="mr-3 flex-shrink-0 h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="#C8ABFF" stroke-width="1.5"></path> 
+                        <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#C8ABFF" stroke-width="1.5" stroke-linecap="round"></path> 
+                    </g>
+                </svg>
+                New transaction
+            </a>
+            <hr class="border-b border-gray-300 dark:border-gray-600 my-4"/>
+  
+            <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+            <a routerLink="/app" class="dark:text-gray-200 text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 flex items-center px-2 py-2 text-sm font-medium rounded-md my-3 cursor-pointer">
+              <!--Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"-->
+              <svg class="text-gray-400 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
+              Dashboard
+            </a>
+  
+            <a routerLink="/app/history" class="dark:text-gray-200 text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 group flex items-center px-2 py-2 text-sm font-medium rounded-md my-3 cursor-pointer">
+                <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path d="M3 5.67541V3C3 2.44772 2.55228 2 2 2C1.44772 2 1 2.44772 1 3V7C1 8.10457 1.89543 9 3 9H7C7.55229 9 8 8.55229 8 8C8 7.44772 7.55229 7 7 7H4.52186C4.54218 6.97505 4.56157 6.94914 4.57995 6.92229C5.621 5.40094 7.11009 4.22911 8.85191 3.57803C10.9074 2.80968 13.173 2.8196 15.2217 3.6059C17.2704 4.3922 18.9608 5.90061 19.9745 7.8469C20.9881 9.79319 21.2549 12.043 20.7247 14.1724C20.1945 16.3018 18.9039 18.1638 17.0959 19.4075C15.288 20.6513 13.0876 21.1909 10.9094 20.9247C8.73119 20.6586 6.72551 19.605 5.27028 17.9625C4.03713 16.5706 3.27139 14.8374 3.06527 13.0055C3.00352 12.4566 2.55674 12.0079 2.00446 12.0084C1.45217 12.0088 0.995668 12.4579 1.04626 13.0078C1.25994 15.3309 2.2082 17.5356 3.76666 19.2946C5.54703 21.3041 8.00084 22.5931 10.6657 22.9188C13.3306 23.2444 16.0226 22.5842 18.2345 21.0626C20.4464 19.541 22.0254 17.263 22.6741 14.6578C23.3228 12.0526 22.9963 9.30013 21.7562 6.91897C20.5161 4.53782 18.448 2.69239 15.9415 1.73041C13.4351 0.768419 10.6633 0.756291 8.14853 1.69631C6.06062 2.47676 4.26953 3.86881 3 5.67541Z" fill="#a3a3a3"></path> 
+                        <path d="M12 5C11.4477 5 11 5.44771 11 6V12.4667C11 12.4667 11 12.7274 11.1267 12.9235C11.2115 13.0898 11.3437 13.2344 11.5174 13.3346L16.1372 16.0019C16.6155 16.278 17.2271 16.1141 17.5032 15.6358C17.7793 15.1575 17.6155 14.546 17.1372 14.2698L13 11.8812V6C13 5.44772 12.5523 5 12 5Z" fill="#a3a3a3"></path>
+                    </g>
+                </svg>
+                History
+            </a>
+          </nav>
+        </div>
+        <div class="flex flex-shrink-0 border-t border-gray-200 dark:border-gray-600 p-4 mx-2">
+            <a routerLink="/app/profile" class="group block w-full flex-shrink-0">
+                <div class="flex items-center">
+                    <div>
+                      <svg class="inline-block h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                          <circle cx="12" cy="6" r="4" stroke="#a3a3a3" stroke-width="1.5"></circle> 
+                          <path opacity="0.5" d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-base font-medium dark:text-gray-300 text-gray-700 group-hover:text-gray-900 dark:group-hover:text-gray-100">Paloma Sanchez</p>
+                        <p class="text-xs font-medium dark:text-gray-400 text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">View account</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard's dynamic area -->
+    <div class="flex flex-1 flex-col md:pl-64 h-full">
+      <div class="sticky top-0 z-10 bg-gray-100 dark:bg-gray-700 pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden flex">
+        <button (click)="toggleSidebarVisibility ()" type="button" class="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 dark:text-gray-50 hover:text-gray-900">
+          <span class="sr-only">Open sidebar</span>
+          <!-- Heroicon name: outline/bars-3 -->
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+
+        <div class="flex space-x-4 text-center items-center cursor-pointer">
+          <!-- <svg class="w-auto h-8 sm:h-8" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 47.4235C0 38.0237 6.53608 29.9057 15.7703 28.1488C36.4827 24.2081 73.3424 18 100 18C126.658 18 163.517 24.2081 184.23 28.1488C193.464 29.9057 200 38.0237 200 47.4235V150.374C200 159.424 193.931 167.333 185.12 169.396C164.683 174.181 127.351 181.934 100 181.934C72.6487 181.934 35.3172 174.181 14.8798 169.396C6.06883 167.333 0 159.424 0 150.374V47.4235Z" fill="url(#paint0_linear_105_435)"/> <defs> <linearGradient id="paint0_linear_105_435" x1="100" y1="18" x2="100" y2="181.934" gradientUnits="userSpaceOnUse"> <stop stop-color="#A7B5FF"/> <stop offset="1" stop-color="#F3ACFF"/> </linearGradient> </defs> </svg> -->
+          <span class="text-gray-800 dark:text-gray-50 ms-4 font-semibold text-lg">Unitpay</span>
+        </div>
+      </div>
+      <!-- Start of dashboard content -->
+      <main class="flex-1 max-w-full min-h-screen">
+        <div class="">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+            <ng-container *ngIf="showDashboard">
+              <div class="py-6">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+                  <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Dashboard</h1>
+                </div>
+                <!-- The dashoard -->
+                <div class="py-4">
+                    <button type="button" class="relative block w-full rounded-lg border-2 border-dashed dark:border-gray-500 border-gray-300 p-12 text-center hover:border-gray-400">
+                        <svg class="mx-auto h-16 w-16 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier"> 
+                                <path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                                <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"></path> 
+                            </g>
+                        </svg>
+                        <span class="mt-2 block text-sm font-medium text-gray-900 dark:text-gray-500">New transaction</span>
+                    </button>
+                    <app-transactions [componentData]="componentData" (goToHistory)="goToHistory($event)"></app-transactions>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="showTransactionHistory">
+                <!-- The history page -->
+                <app-history></app-history>
+            </ng-container>
+            <!-- End of dashboard content -->
+          </div>
+        </div>
+      </main>
+    </div>
+    <app-profile (goToFundAccount)="goToFundAccount($event)" *ngIf="showProfile"></app-profile>
+    <app-fund-account *ngIf="showFundAccountDialog"></app-fund-account>
+    <app-transaction-info *ngIf="showTransactionInfo"></app-transaction-info>
+    <app-new-transaction *ngIf="showNewTransactionDialog"></app-new-transaction>
+</div>
+  
