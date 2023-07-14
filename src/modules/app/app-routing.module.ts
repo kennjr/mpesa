@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './presentation/pages/not-found/not-found.component';
 import { landingPageRoutes } from '../landing/landing-routing.module';
@@ -9,17 +9,33 @@ import { ProfileComponent } from './presentation/components/profile/profile.comp
 import { NewTransactionComponent } from './presentation/components/new-transaction/new-transaction.component';
 import { TransactionInfoComponent } from './presentation/components/transaction-info/transaction-info.component';
 import { FundAccountComponent } from './presentation/components/fund-account/fund-account.component';
+import { AuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { UserResolver } from '../../modules/auth/domain/resolvers/userResolver'
+
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo('auth');
+const redirectAuthorizedToDashboard = () => redirectLoggedInTo('app');
+
+const historyRoutes: Routes = [
+  {path: "", component: HistoryComponent},
+  {path: "transaction", component: TransactionInfoComponent}
+]
 
 const routes: Routes = [
   {path: "app", component: DashboardComponent, 
     children: [
-      {path: "history", component: HistoryComponent},
+      {path: "history", children: historyRoutes, },
       {path: "profile", component: ProfileComponent},
       {path: "load", component: FundAccountComponent},
       {path: "transaction", component: TransactionInfoComponent},
       {path: "transact", component: NewTransactionComponent},
-    ]},
-  {path: "auth", children: authRoutes},
+    ], canActivate: [AuthGuard], data: {
+      // we're gonna use an auth-guard pip to redirect the user if he's not logged in
+      authGuardPipe: redirectUnauthorizedToLogin,
+    }, resolve: {
+      user: UserResolver
+    }},
+  {path: "auth", children: authRoutes, data: {authGuardPipe: redirectAuthorizedToDashboard}},
   {path: "", children: landingPageRoutes},
   {path: "**", component: NotFoundComponent}
 ];
