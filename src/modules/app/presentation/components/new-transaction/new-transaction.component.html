@@ -44,26 +44,33 @@
                     <p class="mt-2 text-gray-500 dark:text-gray-400">Fill in the inputs below to send money</p>
                 </div>
 
-                <div class="flex items-center justify-between w-full mt-5 gap-x-2">
-                    <input type="text" placeholder="Email or phone" class="flex-1 block h-10 px-4 text-sm text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700" />
-                </div>
-
-                <div class="relative rounded-md shadow-sm flex items-center justify-between w-full mt-5 gap-x-2">
-                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span class="text-gray-500 sm:text-sm">$</span>
+                <form [formGroup]="newTransactionForm" (ngSubmit)="onConfirmClicked()">
+                    <div>
+                        <div class="flex items-center justify-between w-full mt-5 gap-x-2">
+                            <input formControlName="email" type="email" placeholder="Email" class="flex-1 block h-10 px-4 text-sm text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700" />
+                        </div>
+                        <p *ngIf="showEmailFieldErrorMsg" class="mt-1 text-xs text-red-400 ms-2">{{showEmailFieldErrorMsgString}}</p>
                     </div>
-                    <input type="text" name="price" id="price" class="block w-full rounded-md py-1.5 pl-7 pr-20ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 flex-1 h-10 px-4 text-sm text-gray-700 bg-white border border-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700" placeholder="0.00">
-                </div>
-
-                <div class="mt-4 sm:flex sm:items-center sm:justify-between sm:mt-6 sm:-mx-2">
-                    <button (click)="onCancelClicked ()" class="px-4 sm:mx-2 w-full py-2.5 text-sm font-medium dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
-                        Cancel
-                    </button>
-
-                    <button class="px-4 sm:mx-2 w-full py-2.5 mt-3 sm:mt-0 text-sm font-medium tracking-wide text-gray-900 capitalize transition-colors duration-300 transform bg-primary rounded-md">
-                        Confirm
-                    </button>
-                </div>
+                    <div>
+                        <div class="relative rounded-md shadow-sm flex items-center justify-between w-full mt-5 gap-x-2">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                              <span class="text-gray-500 sm:text-sm">$</span>
+                            </div>
+                            <input formControlName="amount" type="text" name="price" id="price" class="block w-full rounded-md py-1.5 pl-7 pr-20ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 flex-1 h-10 px-4 text-sm text-gray-700 bg-white border border-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700" placeholder="0.00">
+                        </div>
+                        <p *ngIf="showAmountFieldErrorMsg" class="mt-1 text-xs text-red-400 ms-2">{{showAmountFieldErrorMsgString}}</p>
+                    </div>
+    
+                    <div class="mt-4 sm:flex sm:items-center sm:justify-between sm:mt-6 sm:-mx-2">
+                        <button (click)="onCancelClicked ()" class="px-4 sm:mx-2 w-full py-2.5 text-sm font-medium dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+                            Cancel
+                        </button>
+    
+                        <button type="submit" class="px-4 sm:mx-2 w-full py-2.5 mt-3 sm:mt-0 text-sm font-medium tracking-wide text-gray-900 capitalize transition-colors duration-300 transform bg-primary rounded-md">
+                            Confirm
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
