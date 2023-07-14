@@ -1,7 +1,5 @@
-import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +7,8 @@ import { Subscription } from 'rxjs';
 export class RouterHelperService {
 
   private validRouteRegices
-  private locationSub!: Subscription
 
-  constructor(private router: Router, private location: Location) {
+  constructor(private router: Router) {
 
     const validRoutes:string[] = []
 
