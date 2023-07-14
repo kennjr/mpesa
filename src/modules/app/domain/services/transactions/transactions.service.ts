@@ -66,7 +66,6 @@ export class TransactionsService {
 
   private async getCurrentUserSentTransactions (email: string): Promise<QuerySnapshot<DocumentData>>{
     const mtransactionsRef = collection(this.firestore, "transactions");
-    console.log("Got here", email)
     // Create a query against the collection.
     const q = query(mtransactionsRef, where("senderEmail", "==", email));
     return await getDocs(q);

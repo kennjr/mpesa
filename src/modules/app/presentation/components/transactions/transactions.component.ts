@@ -37,7 +37,7 @@ export class TransactionsComponent implements OnInit, OnDestroy {
             this.anyDataAvailable = false;
           }
           this.transactions = val;
-          console.log("The data", val);
+          // console.log("The data", val);
         },
         error: (error) => {
           // TODO : show a msg when we get this error
