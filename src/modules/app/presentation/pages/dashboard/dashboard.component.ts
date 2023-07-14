@@ -1,8 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { DocumentData, Timestamp } from '@angular/fire/firestore';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { TransactionComponentRequestFromOptions } from 'src/modules/app/common/AppUtils';
-import { TransactionsDto } from 'src/modules/app/data/dtos/transactionsDto';
+import { MyUser, TransactionsDto } from 'src/modules/app/data/dtos/transactionsDto';
+import { AppRepo } from 'src/modules/app/data/repos/AppRepo';
+import { AuthRepo } from 'src/modules/auth/data/repos/AuthRepo';
 import { SharedRepo } from 'src/modules/shared/data/repos/SharedRepo';
 
 @Component({
@@ -13,6 +16,14 @@ import { SharedRepo } from 'src/modules/shared/data/repos/SharedRepo';
 export class DashboardComponent implements OnInit, OnDestroy {
 
   public componentData: TransactionsDto = {requestFrom: TransactionComponentRequestFromOptions.Dashboard, pageNumber: 1}
+
+  authRepo = inject(AuthRepo);
+  appRepo = inject(AppRepo);
+  sharedRepo = inject(SharedRepo);
+  userId: string = "";
+  userEmail: string = "";
+
+  recentTransactions!: DocumentData[];
 
   public showProfile: boolean = false;
   public showTransactionInfo: boolean = false;
@@ -25,15 +36,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public showSidebar: boolean = false;
 
   private currentRouteSub!: Subscription;
+  getMyUserDataSub!: Subscription;
 
-  constructor(private route: ActivatedRoute, private router: Router, private sharedRepo: SharedRepo){
+  myUserData: MyUser = {uid: "No Uid" , name: "No Name", email: "", phone: "No phone", location: "No location", timestamp: Timestamp.now(), balance: 0.00};
+
+  constructor(private route: ActivatedRoute, private router: Router){
     this.currentRouteSub = router.events.subscribe({
       next: (val) => {
         if(val instanceof NavigationEnd){
-          console.log("Current path", val.url);
-          let isCurrentRouteValid = sharedRepo.isCurrentRouteValid(val.url);
+          // console.log("Current path", val.url);
+          let isCurrentRouteValid = this.sharedRepo.isCurrentRouteValid(val.url);
           if(isCurrentRouteValid){
-            console.log("Current path is valid", val.url);
             if(val.url.includes('/profile')) {
               // hide the transaction-info and new-transaction dialogs then show the profile dialog
               this.showTransactionInfo = false;
@@ -86,7 +99,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.showNewTransactionDialog = false;
               this.showProfile = false;
               this.showTransactionInfo = false;
-            }else{
+            }
+            // this is an exception
+            else if(val.url == '/app/history/transaction'){
+              this.showNewTransactionDialog = false;
+              this.showProfile = false;
+              this.showFundAccountDialog = false;
+              this.showTransactionInfo = true;
+            }
+            else{
               // console.log("it isnt valid else", val.url);
               this.showNewTransactionDialog = false;
               this.showProfile = false;
@@ -102,12 +123,58 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.authRepo.getCurrentUser().then(user => {
+      if(!user) return;
+      // get myUserdata
+
+      this.userEmail = user.email;
+      this.userId = user.uid;
+      this.getMyUserDataSub = this.authRepo.getMyUserData(this.userId).subscribe({
+        next: ((userdata: Partial<MyUser>) => {
+          let uid = userdata.uid ? userdata.uid : "No Uid"
+          let name = userdata.name ? userdata.name : "No Name"
+          let phone = userdata.phone ? userdata.phone : "No Phone number"
+          let email = userdata.email ? userdata.email : "No Email address"
+          let balance = userdata.balance ? userdata.balance : 0.00
+          let timestamp = userdata.timestamp ? userdata.timestamp : Timestamp.now()
+          let location = userdata.location ? userdata.location : "Nairobi, Kenya"
+  
+  
+          this.myUserData = {uid: uid , name: name, email: email, phone: phone, location: location, timestamp: timestamp, balance: balance}
+          this.getRecentTransactions();
+        }),
+        error: ((error: any) => {
+          // this.showSnackbarMessage(error.toString());
+          console.log("The error", error)
+        })
+      });  
+    }).catch(error => {
+      console.log("We got an error", error)
+    });
   }
 
+  private getRecentTransactions (){
+    let email = this.myUserData.email;
+    if(email != null && email.trim() != ""){
+      this.appRepo.getSentTransactionReceipts(email).then(result => {
+        if(!result) return;
+        
+        let dataList = result.docs.map(doc => { return {...doc.data(), "timestamp": doc.data()['timestamp'].seconds}});
+        this.recentTransactions = dataList
+        this.sharedRepo.updateTransactionsList(dataList);
+        // console.log("The result", this.recentTransactions)
+      }).catch(error => {
+
+      })
+    }
+  }
 
   ngOnDestroy(): void {
     if(this.currentRouteSub){
       this.currentRouteSub.unsubscribe();
+    }
+    if(this.getMyUserDataSub){
+      this.getMyUserDataSub.unsubscribe();
     }
   }
 
@@ -119,15 +186,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.showSidebar = !this.showSidebar;
   }
 
-  public goToHistory (num: number):void{
+  public goToHistory (num: number): void{
     if(num == 1){
       this.router.navigate(['/app/history'], {relativeTo: this.route});
     }
   }
 
-  public goToFundAccount (num: number):void{
-    if(num == 1){
-      this.router.navigate(['/app/load'], {relativeTo: this.route});
+  public goToDashboard (): void{
+    this.router.navigate(['/app'], {relativeTo: this.route});
+  }
+
+  public goToFundAccount (balance: number):void{
+    if(this.userId.trim() != ""){
+      this.router.navigate(['/app/load'], {relativeTo: this.route, state: {"balance": balance}});
     }
   }
 
