@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './presentation/pages/not-found/not-found.component';
 import { landingPageRoutes } from '../landing/landing-routing.module';
 import { authRoutes } from '../auth/auth-routing.module';
@@ -35,13 +35,15 @@ const routes: Routes = [
     }, resolve: {
       user: UserResolver
     }},
-  {path: "auth", children: authRoutes, data: {authGuardPipe: redirectAuthorizedToDashboard}},
+  {path: "auth", loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)},
   {path: "", children: landingPageRoutes},
   {path: "**", component: NotFoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
