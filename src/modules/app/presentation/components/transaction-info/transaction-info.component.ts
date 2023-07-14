@@ -1,5 +1,7 @@
 import { Location } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { DocumentData } from '@angular/fire/firestore';
+import { Timestamp } from '@angular/fire/firestore';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SharedRepo } from 'src/modules/shared/data/repos/SharedRepo';
@@ -12,20 +14,31 @@ import { SharedRepo } from 'src/modules/shared/data/repos/SharedRepo';
 export class TransactionInfoComponent implements OnInit, OnDestroy {
 
   public result: boolean = false;
+  public wasMoneySent: boolean = true;
 
-  public transactionId: string = "-1";
+  @Input() userEmail: string = ""
 
-  constructor(private sharedRepo: SharedRepo, private location: Location,
-    private route: ActivatedRoute, private router: Router){
-    
-    
-  }
+  public transaction!: DocumentData;
+  timestamp!: number;
+
+  constructor(private sharedRepo: SharedRepo, private location: Location){ }
 
   ngOnInit(): void {
     let routeData: any = this.location.getState();
-    this.transactionId = routeData['id']
-    console.log("The state data", routeData);
-    console.log("The transactionid", this.transactionId);
+    this.transaction = routeData['transaction'];
+    let t = this.transaction['timestamp'] as Timestamp
+    this.timestamp = t.seconds
+    if(this.userEmail != ""){
+      let senderEmail = this.transaction['senderEmail'];
+
+      if(senderEmail == this.userEmail){
+        this.wasMoneySent = true;
+      }else{
+        this.wasMoneySent = false;
+      }
+    }else{
+      // this.sharedRepo.navigateBack();
+    }
   }
   ngOnDestroy(): void {
     // throw new Error('Method not implemented.');

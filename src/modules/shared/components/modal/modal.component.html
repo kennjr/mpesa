@@ -1,0 +1,46 @@
+<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!--
+      Background backdrop, show/hide based on modal state.
+  
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <!--
+          Modal panel, show/hide based on modal state.
+  
+          Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+        <div class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-900 px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+          <div>
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-transparent">
+              <!-- Heroicon name: outline/check -->
+              <img class="w-fit h-fit" [src]="getIcon()" />
+            </div>
+            
+            <div class="mt-3 text-center sm:mt-5">
+              <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-100" id="modal-title">{{modalData.title}}</h3>
+              <div class="mt-2">
+                <p class="text-sm text-gray-300">{{modalData.msg}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 sm:mt-6">
+            <button type="button" (click)="hideModal()" class="inline-flex w-full justify-center rounded-md border border-transparent bg-orange px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-light focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 sm:text-sm">{{modalData.btnText}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

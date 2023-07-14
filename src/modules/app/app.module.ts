@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,12 @@ import { TransactionInfoComponent } from './presentation/components/transaction-
 import { TransactionsComponent } from './presentation/components/transactions/transactions.component';
 import { FundAccountComponent } from './presentation/components/fund-account/fund-account.component';
 
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';        
+import { getAuth, provideAuth } from '@angular/fire/auth';        
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AuthGuard } from '@angular/fire/auth-guard';
+import { environment } from 'src/environments/environments';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +38,9 @@ import { FundAccountComponent } from './presentation/components/fund-account/fun
   ],
   imports: [
     CommonModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),     
+    provideFirestore(() => getFirestore()),  
+    provideAuth(() => getAuth()),
     LandingModule,
     AuthModule,
     BrowserModule,
@@ -40,7 +49,7 @@ import { FundAccountComponent } from './presentation/components/fund-account/fun
     HttpClientModule,
     SharedModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

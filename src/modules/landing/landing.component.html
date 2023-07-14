@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header (scrollToSection)="scrollToSectionRequest($event)"></app-header>
 <!-- Hero section -->
 <div class="relative bg-gray-50 dark:bg-gray-900">
     <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Features -->
-    <section>
+    <section #features>
         <div class="px-4 sm:px-6 lg:px-6 py-6 lg:py-10 mx-auto max-w-7xl">
           <div class="md:w-2/3 lg:w-1/2">
             <h2 class="my-8 text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">A technology-first approach to payments and finance</h2>
@@ -117,7 +117,7 @@
     </section>
 
     <!-- Team -->
-    <section class="pb-14 lg:pb-16 pt-14 lg:pt-16">
+    <section #team class="pb-14 lg:pb-16 pt-14 lg:pt-16">
         <div class="px-4 sm:px-6 lg:px-6 py-10 mx-auto max-w-7xl">
             <div class="xl:flex xl:items-center xl:-mx-4">
                 <div class="xl:w-1/2 xl:mx-2">
@@ -143,7 +143,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section>
+    <section #testimonials>
         <div class="px-4 sm:px-6 lg:px-6 py-10 mx-auto max-w-7xl">
             <div class="mb-12 lg:mb-20 space-y-4 px-6 md:px-0">
               <h2 class="text-center text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">What some of our users are saying</h2>
@@ -151,7 +151,7 @@
             <div class="md:columns-2 lg:columns-3 gap-8 space-y-8">
                 <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
                     <div class="flex gap-4">
-                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar.webp" alt="user avatar" width="400" height="400" loading="lazy">
+                    <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="user avatar" width="400" height="400" loading="lazy">
                     <div>
                         <h6 class="text-lg font-medium text-gray-700 dark:text-white">Daniella Doe</h6>
                         <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
@@ -162,7 +162,7 @@
                 
                 <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
                     <div class="flex gap-4">
-                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-1.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="user avatar" width="200" height="200" loading="lazy">
                     <div>
                         <h6 class="text-lg font-medium text-gray-700 dark:text-white">Jane doe</h6>
                         <p class="text-sm text-gray-500 dark:text-gray-300">Marketing</p>
@@ -173,7 +173,7 @@
 
                 <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
                     <div class="flex gap-4">
-                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-2.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="user avatar" width="200" height="200" loading="lazy">
                     <div>
                         <h6 class="text-lg font-medium text-gray-700 dark:text-white">Yanick Doe</h6>
                         <p class="text-sm text-gray-500 dark:text-gray-300">Developer</p>
@@ -184,7 +184,7 @@
 
                 <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
                     <div class="flex gap-4">
-                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-3.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="user avatar" width="200" height="200" loading="lazy">
                     <div>
                         <h6 class="text-lg font-medium text-gray-700 dark:text-white">Jane Doe</h6>
                         <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
@@ -195,7 +195,7 @@
 
                 <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
                     <div class="flex gap-4">
-                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-4.webp" alt="user avatar" width="200" height="200" loading="lazy">
+                    <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="user avatar" width="200" height="200" loading="lazy">
                     <div>
                         <h6 class="text-lg font-medium text-gray-700 dark:text-white">Andy Doe</h6>
                         <p class="text-sm text-gray-500 dark:text-gray-300">Manager</p>
@@ -206,7 +206,7 @@
 
                 <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
                     <div class="flex gap-4">
-                    <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-2.webp" alt="user avatar" width="400" height="400" loading="lazy">
+                    <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1567186937675-a5131c8a89ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="user avatar" width="400" height="400" loading="lazy">
                     <div>
                         <h6 class="text-lg font-medium text-gray-700 dark:text-white">Yanndy Doe</h6>
                         <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
@@ -219,7 +219,7 @@
     </section>
 
     <!-- Pricing -->
-    <section class="lg:py-12">
+    <section #pricing class="lg:py-12">
         <div class="mx-auto max-w-7xl bg-gray-50 dark:bg-gray-900 py-24 lg:py-16 px-4 sm:px-6 lg:px-6">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl sm:leading-none lg:text-4xl">Pricing plans for transactions of all sizes</h2>
             <p class="mt-4 lg:mt-8 max-w-2xl text-base text-gray-500 dark:text-gray-300">One of the charges below will apply to your transaction based on the amount.</p>
@@ -228,12 +228,12 @@
             <div class="mt-16 lg:mt-20 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
                 <div class="relative flex flex-col rounded-2xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 p-8 shadow-sm">
                     <div class="flex-1">
-                    <h3 class="text-xl font-semibold text-gray-200">Small</h3>
+                    <h3 class="text-xl font-semibold dark:text-gray-200 text-gray-400">Small</h3>
                     <p class="mt-4 flex items-baseline text-gray-900">
                         <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">$1.30</span>
                         <span class="ml-1 text-xl font-semibold text-gray-900 dark:text-gray-50">/transaction</span>
                     </p>
-                    <p class="mt-6 text-gray-500">The essentials to provide your best work for clients.</p>
+                    <p class="mt-6 text-gray-500">All transactions below $500 will be charged a fee very small fee.</p>
                     </div>
             
                     <a routerLink="/auth" class="bg-gray-700 text-primary scale-90 hover:scale-95 border-gray-500 mt-8 block w-full py-3 px-6 rounded-xl text-center font-medium">Get started</a>
@@ -241,14 +241,14 @@
             
                 <div class="relative flex flex-col rounded-2xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 p-8 shadow-sm">
                     <div class="flex-1">
-                    <h3 class="text-xl font-semibold text-gray-200">Medium</h3>
+                    <h3 class="text-xl font-semibold dark:text-gray-200 text-gray-400">Medium</h3>
             
                     <p class="absolute top-0 -translate-y-1/2 transform rounded-full bg-primary py-1.5 px-4 text-sm font-semibold text-gray-800">Most popular</p>
                     <p class="mt-4 flex items-baseline text-gray-900">
                         <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">$2.00</span>
                         <span class="ml-1 text-xl font-semibold text-gray-900 dark:text-gray-50">/transaction</span>
                     </p>
-                    <p class="mt-6 text-gray-500">A plan that scales with your rapidly growing business.</p>
+                    <p class="mt-6 text-gray-500">Average transactions of between $500-$9,999 will be charged a nominal fee of $2.00</p>
                     </div>
             
                     <a routerLink="/auth" class="bg-primary text-gray-900 scale-90 hover:scale-95 mt-8 block w-full py-3 px-6 border border-transparent rounded-xl text-center font-medium cursor-pointer">Get started</a>
@@ -256,12 +256,12 @@
             
                 <div class="relative flex flex-col rounded-2xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 p-8 shadow-sm">
                     <div class="flex-1">
-                    <h3 class="text-xl font-semibold text-gray-200">Large</h3>
+                    <h3 class="text-xl font-semibold dark:text-gray-200 text-gray-400">Large</h3>
                     <p class="mt-4 flex items-baseline text-gray-900">
                         <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">$3.50</span>
                         <span class="ml-1 text-xl font-semibold text-gray-900 dark:text-gray-50">/transaction</span>
                     </p>
-                    <p class="mt-6 text-gray-500">Dedicated support and infrastructure for your company.</p>
+                    <p class="mt-6 text-gray-500">For any big transaction of $10,000+, a small fee of $3.50</p>
                     </div>
             
                     <a routerLink="/auth" class="bg-gray-700 text-primary scale-90 hover:scale-95 mt-8 block w-full py-3 px-6 rounded-xl text-center font-medium cursor-pointer">Get started</a>
@@ -280,10 +280,10 @@
                 </h2>
                 <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
                   <div class="inline-flex rounded-xl shadow">
-                    <a href="#" class="inline-flex items-center justify-center rounded-xl border border-transparent bg-primary px-5 py-3 text-base font-medium text-gray-800 scale-90 hover:scale-95">Get started</a>
+                    <a routerLink="/auth" class="inline-flex items-center justify-center rounded-xl border border-transparent bg-primary px-5 py-3 text-base font-medium text-gray-800 scale-90 hover:scale-95 cursor-pointer">Get started</a>
                   </div>
                   <div class="ml-3 inline-flex rounded-xl shadow">
-                    <a href="#" class="inline-flex items-center justify-center rounded-xl border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-primary scale-90 hover:scale-95">Learn more</a>
+                    <a href="#" class="inline-flex items-center justify-center rounded-xl border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-primary scale-90 hover:scale-95 cursor-pointer">Learn more</a>
                   </div>
                 </div>
               </div>

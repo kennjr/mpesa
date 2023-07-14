@@ -47,7 +47,7 @@
   
             <!-- Slide-over panel, show/hide based on slide-over state. -->
             <div class="h-full overflow-y-auto bg-white dark:bg-gray-800 p-8">
-              <div class="space-y-6 pb-16">
+              <div class="space-y-6 pb-16" *ngIf="transaction">
                 <div>
                     <div class="aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg items-center justify-center text-primary bg-gray-100 dark:bg-gray-600">
                         <img class="w-5 h-5" src="./../../../../../assets/res/svg/money.svg">
@@ -55,7 +55,7 @@
                     <div class="mt-4 flex items-start justify-between">
                         <div>
                             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-50"><span class="sr-only">Details for </span>Q37TN0IDB0</h2>
-                            <p [ngClass]="{'text-green-400 dark:text-green-600': result, 'text-red-600 dark:text-red-600' : !result }" class="text-sm font-medium text-gray-500"><span *ngIf="result">Success</span><span *ngIf="!result">Failed</span></p>
+                            <p [ngClass]="{'text-green-400 dark:text-green-600': transaction['result'], 'text-red-600 dark:text-red-600' : !transaction['result'] }" class="text-sm font-medium text-gray-500"><span *ngIf="transaction['result']">Success</span><span *ngIf="!transaction['result']">Failed</span></p>
                         </div>
                         <button type="button" class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-gray-800 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-500">
                             <!-- Share icon -->
@@ -75,19 +75,19 @@
                     </div>
                 </div>
                 <div>
-                  <h3 class="font-medium text-gray-900 dark:text-gray-50">From</h3>
+                  <h3 class="font-medium text-gray-900 dark:text-gray-50"><span *ngIf="!wasMoneySent">From</span><span *ngIf="wasMoneySent">To</span></h3>
                   <dl class="mt-2 divide-y divide-gray-200 dark:divide-gray-500 border-t border-b border-gray-200 dark:border-gray-500">
                     <div class="flex justify-between py-3 text-sm font-medium">
                       <dt class="text-gray-500 dark:text-gray-400">Name</dt>
-                      <dd class="text-gray-900 dark:text-gray-50">Martina Castro</dd>
+                      <dd class="text-gray-900 dark:text-gray-50"><span *ngIf="!wasMoneySent">{{transaction['senderName']}}</span><span *ngIf="wasMoneySent">{{transaction['receiverName']}}</span></dd>
                     </div>
                     <div class="flex justify-between py-3 text-sm font-medium">
                       <dt class="text-gray-500 dark:text-gray-400">Email</dt>
-                      <dd class="text-gray-900 dark:text-gray-50">martinacastro@unitpay.live</dd>
+                      <dd class="text-gray-900 dark:text-gray-50"><span *ngIf="!wasMoneySent">{{transaction['senderEmail']}}</span><span *ngIf="wasMoneySent">{{transaction['receiverEmail']}}</span></dd>
                     </div>
                     <div class="flex justify-between py-3 text-sm font-medium">
                       <dt class="text-gray-500 dark:text-gray-400">Phone</dt>
-                      <dd class="text-gray-900 dark:text-gray-50">+254 786 256 630</dd>
+                      <dd class="text-gray-900 dark:text-gray-50"><span *ngIf="!wasMoneySent">{{transaction['senderPhone']}}</span><span *ngIf="wasMoneySent">{{transaction['receiverPhone']}}</span></dd>
                     </div>
                   </dl>
                 </div>
@@ -97,25 +97,25 @@
                   <dl class="mt-2 divide-y divide-gray-200 dark:divide-gray-500 border-t border-b border-gray-200 dark:border-gray-500">
                     <div class="flex justify-between py-3 text-sm font-medium">
                       <dt class="text-gray-500 dark:text-gray-400">Amount</dt>
-                      <dd class="text-gray-900 dark:text-gray-50">$349</dd>
+                      <dd class="text-gray-900 dark:text-gray-50">${{transaction['amount']}}</dd>
                     </div>
                     <div class="flex justify-between py-3 text-sm font-medium">
                       <dt class="text-gray-500 dark:text-gray-400">Cost</dt>
-                      <dd class="text-gray-900 dark:text-gray-50">$2.40</dd>
+                      <dd class="text-gray-900 dark:text-gray-50">${{transaction['fee']}}</dd>
                     </div>
                   </dl>
                 </div>
                 <div>
                   <h3 class="font-medium text-gray-900 dark:text-gray-50">Time</h3>
                   <dl class="mt-0 flex items-center justify-between text-sm border-b border-gray-200 dark:border-gray-500 font-medium">
-                    <dt class="text-gray-500 dark:text-gray-400 py-3">16:37 Fri 10, Nov 2021</dt>
+                    <dt class="text-gray-500 dark:text-gray-400 py-3">{{timestamp | date:'mediumDate'}}</dt>
                   </dl>
                 </div>
                 <div>
                     <dl class="mt-2 divide-y divide-gray-200 border-b border-gray-200 dark:border-gray-500">
                       <div class="flex justify-between py-3 text-sm font-medium">
                         <dt class="text-gray-500 dark:text-gray-400">Balance</dt>
-                        <dd class="text-gray-900 dark:text-gray-50">$8349</dd>
+                        <dd class="text-gray-900 dark:text-gray-50">$<span *ngIf="wasMoneySent">{{transaction['senderBalance']}}</span><span *ngIf="!wasMoneySent">{{transaction['receiverBalance']}}</span></dd>
                       </div>
                     </dl>
                   </div>

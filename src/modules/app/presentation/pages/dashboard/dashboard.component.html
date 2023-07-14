@@ -46,7 +46,7 @@
   
           <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
             <div class="flex flex-shrink-0 items-center px-4">
-              <app-logo-header class="ms-1"></app-logo-header>
+              <app-logo-header (click)="goToDashboard()" class="ms-1"></app-logo-header>
             </div>
             <nav class="mt-5 space-y-1 px-2">
               <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
@@ -99,7 +99,7 @@
                       </svg>
                     </div>
                     <div class="ml-4">
-                        <p class="text-base font-medium dark:text-gray-300 text-gray-700 group-hover:text-gray-900 dark:group-hover:text-gray-100">Paloma Sanchez</p>
+                        <p class="text-base font-medium dark:text-gray-300 text-gray-700 group-hover:text-gray-900 dark:group-hover:text-gray-100">{{myUserData.name}}</p>
                         <p class="text-xs font-medium dark:text-gray-400 text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">View account</p>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
       <div class="flex min-h-0 flex-1 flex-col border-r border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800">
         <div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
           <div class="flex flex-shrink-0 items-center p-4">
-            <app-logo-header class="ms-1"></app-logo-header>
+            <app-logo-header (click)="goToDashboard()" class="ms-1"></app-logo-header>
           </div>
           <nav class="mt-5 flex-1 bg-white dark:bg-gray-800 px-2 mx-2">
             <a routerLink="/app/transact" class="dark:text-gray-100 text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-primary group flex items-center px-2 py-2 text-sm font-medium rounded-md cursor-pointer">
@@ -170,7 +170,7 @@
                       </svg>
                     </div>
                     <div class="ml-4">
-                        <p class="text-base font-medium dark:text-gray-300 text-gray-700 group-hover:text-gray-900 dark:group-hover:text-gray-100">Paloma Sanchez</p>
+                        <p class="text-base font-medium dark:text-gray-300 text-gray-700 group-hover:text-gray-900 dark:group-hover:text-gray-100">{{myUserData.name}}</p>
                         <p class="text-xs font-medium dark:text-gray-400 text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">View account</p>
                     </div>
                 </div>
@@ -201,23 +201,36 @@
           <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
             <ng-container *ngIf="showDashboard">
               <div class="py-6">
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-0 md:pe-8">
                   <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Dashboard</h1>
                 </div>
                 <!-- The dashoard -->
                 <div class="py-4">
-                    <button type="button" class="relative block w-full rounded-lg border-2 border-dashed dark:border-gray-500 border-gray-300 p-12 text-center hover:border-gray-400">
-                        <svg class="mx-auto h-16 w-16 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier"> 
-                                <path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
-                                <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"></path> 
-                            </g>
-                        </svg>
-                        <span class="mt-2 block text-sm font-medium text-gray-900 dark:text-gray-500">New transaction</span>
+                  <div class="flex">
+                    <button type="button" class="relative block w-1/2 rounded-lg border-2 border-dashed dark:border-gray-500 border-gray-300 p-12 mx-4 text-center hover:border-gray-400">
+                      <svg class="mx-auto h-16 w-16 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                          <path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                          <path d="M7 14L8.79689 11.8437C9.50894 10.9893 9.86496 10.562 10.3333 10.562C10.8017 10.562 11.1577 10.9893 11.8698 11.8437L12.1302 12.1563C12.8423 13.0107 13.1983 13.438 13.6667 13.438C14.135 13.438 14.4911 13.0107 15.2031 12.1563L17 10" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"></path> 
+                        </g>
+                      </svg>
+                      <span class="mt-2 block text-sm font-medium text-gray-900 dark:text-gray-500">30-day analysis</span>
                     </button>
-                    <app-transactions [componentData]="componentData" (goToHistory)="goToHistory($event)"></app-transactions>
+                    <button type="button" class="relative block w-1/2 rounded-lg border-2 border-dashed dark:border-gray-500 border-gray-300 p-12 mx-4 text-center hover:border-gray-400">
+                      <svg class="mx-auto h-16 w-16 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                          <g id="SVGRepo_iconCarrier"> 
+                              <path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="#a3a3a3" stroke-width="1.5"></path> 
+                              <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"></path> 
+                          </g>
+                      </svg>
+                      <span class="mt-2 block text-sm font-medium text-gray-900 dark:text-gray-500">New financial goal</span>
+                    </button>
+                  </div>
+                  <app-transactions [componentData]="componentData" (goToHistory)="goToHistory($event)" [transactions]="recentTransactions" [userEmail]="userEmail"></app-transactions>
                 </div>
               </div>
             </ng-container>
@@ -230,9 +243,9 @@
         </div>
       </main>
     </div>
-    <app-profile (goToFundAccount)="goToFundAccount($event)" *ngIf="showProfile"></app-profile>
-    <app-fund-account *ngIf="showFundAccountDialog"></app-fund-account>
-    <app-transaction-info *ngIf="showTransactionInfo"></app-transaction-info>
-    <app-new-transaction *ngIf="showNewTransactionDialog"></app-new-transaction>
+    <app-profile (goToFundAccount)="goToFundAccount($event)" *ngIf="showProfile" [myUserData]="myUserData"></app-profile>
+    <app-fund-account *ngIf="showFundAccountDialog" [userId]="userId"></app-fund-account>
+    <app-transaction-info *ngIf="showTransactionInfo" [userEmail]="userEmail"></app-transaction-info>
+    <app-new-transaction *ngIf="showNewTransactionDialog" [myUserData]="myUserData"></app-new-transaction>
 </div>
   
