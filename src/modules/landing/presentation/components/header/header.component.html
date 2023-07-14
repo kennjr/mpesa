@@ -22,17 +22,22 @@
                     <div class="text-gray-600 dark:text-gray-300 lg:pr-4 lg:w-auto w-full lg:pt-0">
                         <ul class="tracking-wide font-medium lg:text-sm flex-col flex lg:flex-row gap-6 lg:gap-0">
                             <li>
-                                <a href="#features" class="block md:px-4 transition hover:text-primary">
+                                <a (click)="onFeaturesClicked()" class="block md:px-4 transition hover:text-primary cursor-pointer">
                                     <span>Features</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#solution" class="block md:px-4 transition hover:text-primary">
-                                    <span>Solution</span>
+                                <a (click)="onPricingClicked()" class="block md:px-4 transition hover:text-primary cursor-pointer">
+                                    <span>Pricing</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#testimonials" class="block md:px-4 transition hover:text-primary">
+                                <a (click)="onTeamClicked()" class="block md:px-4 transition hover:text-primary cursor-pointer">
+                                    <span>Team</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a (click)="onTestimonialsClicked()" class="block md:px-4 transition hover:text-primary cursor-pointer">
                                     <span>Testimonials</span>
                                 </a>
                             </li>
