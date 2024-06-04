@@ -1,26 +1,58 @@
-# Mpesa
+# Unitpay
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34) ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Sending and receiving money has never been easier, simply provide the recipient's email and the amount. That's it!! 
 
-## Code scaffolding
+With Unitpay you can send or receive money from anyone on the network that easily, built for the average internet user this application is intuitive with a thoroughly thought through design. It was built to solve the age-old problem of sending money on the internet and meant to serve internet users who are tired of the high transaction fees they're charged by having a flat fee.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This application is robust and capable of handling a lot of users concurrently. Powered by Google's firebase users can easily authenticate and transact.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Look and feel
 
-## Running unit tests
+Here are some screenshots of the application.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Tech stack
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Being an portfolio project I built it with the latest and greatest web technologies:
+
+    - Angular framework
+      : for better and easier integration with the backed
+    - Firebase
+      : for authentication and database.
+    - Tailwind
+      : for the project's styling
+
+  
+## Features
+
+What makes this app worthwhile, you might be asking. Here are some of the features our users enjoy:
+
+    - Flat transaction fees.
+      : Transaction fees on Unitpay are flat, this makes sending huge amounts of money economical. 
+        Our three-tier fee rates cater to every transaction size.
+    - Easy & secure
+      : Unlike other platforms where security compromises the user experience, 
+        Unitpay finds the sweet spot enhancing the user experience while maintaining the highest standards of security.
+  
+  
+## Support
+> [!IMPORTANT]
+> This was an portfolio project, meant to showcase my skills.
+
+For any support report an issue on this repository, I'll work on it and update the codebase as soon as I can.
+
+Better yet, you could fork the project and try fixing it, if it's something you think you can mend.  
+
+  
+## License
+This software is publicly available under the [MIT](LICENSE) license
+
 
 ## Further help
 
