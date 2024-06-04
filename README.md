@@ -18,11 +18,11 @@ Here are some screenshots of the application.
 
 |                                Mobile screenshot landing                              |                                       Mobile screenshot auth                                  |  Mobile screenshot dashboard |
 |:-------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|:----------------------------:|
-| ![Landing page screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_1.png?raw=true) | ![Auth screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_2.png?raw=true) | ![Dashboard screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_3.png?raw=true)|
+| ![Landing page screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_1.jpg?raw=true) | ![Auth screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_2.jpg?raw=true) | ![Dashboard screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_3.jpg?raw=true)|
 
 |                                Mobile screenshot fund account                         |                                       Mobile screenshot new transaction                                     |  Mobile screenshot transaction |
 |:-------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------:|:------------------------------:|
-| ![fund account screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_4.png?raw=true) | ![new transaction screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_5.png?raw=true) | ![transaction screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_6.png?raw=true)|
+| ![fund account screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_4.jpg?raw=true) | ![new transaction screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_5.jpg?raw=true) | ![transaction screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_6.jpg?raw=true)|
 
 
 
