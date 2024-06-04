@@ -16,6 +16,25 @@ This application is robust and capable of handling a lot of users concurrently. 
 
 Here are some screenshots of the application.
 
+|                                Mobile screenshot landing                              |                                       Mobile screenshot auth                                  |  Mobile screenshot dashboard |
+|:-------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|:----------------------------:|
+| ![Landing page screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_1.png?raw=true) | ![Auth screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_2.png?raw=true) | ![Dashboard screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_3.png?raw=true)|
+
+|                                Mobile screenshot fund account                         |                                       Mobile screenshot new transaction                                     |  Mobile screenshot transaction |
+|:-------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------:|:------------------------------:|
+| ![fund account screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_4.png?raw=true) | ![new transaction screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_5.png?raw=true) | ![transaction screenshot](https://github.com/kennjr/mpesa/blob/main/mobile_screenshot_6.png?raw=true)|
+
+
+
+|                                Desktop screenshot landing                             |                                       Desktop screenshot auth                                 |  Desktop screenshot dashboard |
+|:-------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|:-----------------------------:|
+| ![Landing page screenshot](https://github.com/kennjr/mpesa/blob/main/desktop_screenshot_1.png?raw=true) | ![Auth screenshot](https://github.com/kennjr/mpesa/blob/main/desktop_screenshot_2.png?raw=true) | ![Dashboard screenshot](https://github.com/kennjr/mpesa/blob/main/desktop_screenshot_3.png?raw=true)|
+
+|                                Desktop screenshot fund account                        |                                       Desktop screenshot new transaction                                    |  Desktop screenshot transaction |
+|:-------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------:|:-------------------------------:|
+| ![fund account screenshot](https://github.com/kennjr/mpesa/blob/main/desktop_screenshot_4.png?raw=true) | ![new transaction screenshot](https://github.com/kennjr/mpesa/blob/main/desktop_screenshot_5.png?raw=true) | ![transaction screenshot](https://github.com/kennjr/mpesa/blob/main/desktop_screenshot_6.png?raw=true)|
+
+
 
 ## Tech stack
 
@@ -43,7 +62,7 @@ What makes this app worthwhile, you might be asking. Here are some of the featur
   
 ## Support
 > [!IMPORTANT]
-> This was an portfolio project, meant to showcase my skills.
+> This was a portfolio project, meant to showcase my skills.
 
 For any support report an issue on this repository, I'll work on it and update the codebase as soon as I can.
 
